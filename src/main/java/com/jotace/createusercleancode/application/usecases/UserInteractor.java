@@ -1,7 +1,8 @@
 package com.jotace.createusercleancode.application.usecases;
 
 import com.jotace.createusercleancode.application.boundary.UserInputBoundary;
-import com.jotace.createusercleancode.application.gateway.RegisterUserGateway;
+import com.jotace.createusercleancode.application.exception.FailException;
+import com.jotace.createusercleancode.application.gateway.UserGateway;
 import com.jotace.createusercleancode.application.model.UserRequestModel;
 import com.jotace.createusercleancode.application.model.UserResponseModel;
 import com.jotace.createusercleancode.application.presenter.CreateUserPresenter;
@@ -10,12 +11,12 @@ import com.jotace.createusercleancode.core.entity.CommonUserFactory;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class CreateUserInteractor implements UserInputBoundary {
+public class UserInteractor implements UserInputBoundary {
 
-    private final RegisterUserGateway registerUserGateway;
+    private final UserGateway userGateway;
     private final CreateUserPresenter createUserPresenter;
-    public CreateUserInteractor(RegisterUserGateway registerUserGateway, CreateUserPresenter createUserPresenter) {
-        this.registerUserGateway = registerUserGateway;
+    public UserInteractor(UserGateway userGateway, CreateUserPresenter createUserPresenter) {
+        this.userGateway = userGateway;
         this.createUserPresenter = createUserPresenter;
     }
 
@@ -27,13 +28,20 @@ public class CreateUserInteractor implements UserInputBoundary {
             return createUserPresenter.prepareFailView("User password must have more than 5 characters.");
         }
 
-        registerUserGateway.save(user);
+        userGateway.save(user);
 
         return createUserPresenter.prepareSuccessView(new UserResponseModel(user.getName(), LocalDateTime.now()));
     }
 
     @Override
     public List<UserResponseModel> getAllUsers() {
-        throw new RuntimeException("CreateUserInteractor does not support this functionality");
+        var list = userGateway.getALlUser().stream().map(UserResponseModel::new).toList();
+
+        if(list.isEmpty()) {
+            throw new FailException("No user found");
+        }
+
+        return list;
     }
+
 }
