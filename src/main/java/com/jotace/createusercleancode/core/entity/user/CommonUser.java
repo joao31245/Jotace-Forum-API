@@ -1,14 +1,17 @@
 package com.jotace.createusercleancode.core.entity.user;
 
+import com.jotace.createusercleancode.core.entity.post.Post;
+
+import java.util.List;
+
 public class CommonUser implements User{
 
     private Long id;
     private String name;
     private String password;
-
     private String email;
-
     private String image;
+    private List<Post> posts;
 
     public CommonUser( String name, String password, String email) {
         if(this.validPassword(password)) {
@@ -50,6 +53,11 @@ public class CommonUser implements User{
     @Override
     public String getEmail() {
         return this.email;
+    }
+
+    @Override
+    public List<Post> getPosts() {
+        return this.posts;
     }
 
 }
