@@ -9,11 +9,9 @@ import java.util.List;
 
 public interface UserInputBoundary {
     UserResponseModel create(UserRequestModel userRequestModel);
-
     List<UserResponseModel> getAllUsers();
-
     UserUpdateResponseModel update(UserUpdateRequestModel userUpdateRequestModel);
-
     void delete(Long id);
+    UserResponseModel findUserById(Long id);
 
 }

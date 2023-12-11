@@ -65,10 +65,13 @@ public class UserGatewayImpl implements UserGateway {
 
         return userMapper.toAbstract(user);
     }
-
     @Override
     public void delete(Long id) {
         var user = userRepository.findUserById(id);
         userRepository.delete(user);
+    }
+    @Override
+    public User findUserById(Long id) {
+        return userMapper.toAbstract(userRepository.findUserById(id));
     }
 }

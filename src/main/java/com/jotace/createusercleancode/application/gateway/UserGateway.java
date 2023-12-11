@@ -13,4 +13,5 @@ public interface UserGateway {
 
     void delete(Long id);
 
+    User findUserById(Long id);
 }

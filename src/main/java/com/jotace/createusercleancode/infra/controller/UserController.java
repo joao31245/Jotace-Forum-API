@@ -17,7 +17,6 @@ public class UserController {
     public UserController(UserInputBoundary userInputBoundary) {
         this.userInputBoundary = userInputBoundary;
     }
-
     @PostMapping
     public ResponseEntity<UserResponseModel> createUser(@RequestBody UserRequestModel userRequestModel) {
        return ResponseEntity.ok(userInputBoundary.create(userRequestModel));
@@ -29,6 +28,10 @@ public class UserController {
     @PutMapping
     public ResponseEntity<UserUpdateResponseModel> updateUser(@RequestBody UserUpdateRequestModel requestModel) {
        return ResponseEntity.ok(userInputBoundary.update(requestModel));
+    }
+    @GetMapping("{id}")
+    public ResponseEntity<UserResponseModel> findUserById(@PathVariable Long id) {
+        return ResponseEntity.ok(userInputBoundary.findUserById(id));
     }
 
 }

@@ -54,4 +54,10 @@ public class UserInteractor implements UserInputBoundary {
     public void delete(Long id) {
         this.userGateway.delete(id);
     }
+
+    @Override
+    public UserResponseModel findUserById(Long id) {
+        var user = userGateway.findUserById(id);
+        return new UserResponseModel(user);
+    }
 }
