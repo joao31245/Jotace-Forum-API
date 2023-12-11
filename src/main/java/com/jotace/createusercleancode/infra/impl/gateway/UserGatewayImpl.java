@@ -1,6 +1,7 @@
 package com.jotace.createusercleancode.infra.impl.gateway;
 
 import com.jotace.createusercleancode.application.gateway.UserGateway;
+import com.jotace.createusercleancode.application.model.UserUpdateRequestModel;
 import com.jotace.createusercleancode.core.entity.User;
 import com.jotace.createusercleancode.infra.mapper.UserMapper;
 import com.jotace.createusercleancode.infra.persistence.UserEntityRepository;
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserGatewayImpl implements UserGateway {
-
     private final UserEntityRepository userRepository;
     private final UserMapper userMapper;
 
@@ -24,13 +24,17 @@ public class UserGatewayImpl implements UserGateway {
     }
 
     @Override
-    public void save(User user) {
+    public User save(User user) {
         if(existsByName(user.getName())) {
             throw new RuntimeException("Already exists an user with this name");
         }
 
        var userEntity = userMapper.toEntity(user);
+
        userRepository.save(userEntity);
+
+       return userMapper.toAbstract(userEntity);
+
     }
 
     @Override
@@ -44,5 +48,27 @@ public class UserGatewayImpl implements UserGateway {
         });
 
         return abstractList;
+    }
+
+    @Override
+    public User update(UserUpdateRequestModel userUpdateRequestModel) {
+        var user = userRepository.findUserById(userUpdateRequestModel.userId());
+
+        if(userUpdateRequestModel.name() != null) {
+            user.setName(userUpdateRequestModel.name());
+        }
+        if(userUpdateRequestModel.email() != null) {
+            user.setEmail(userUpdateRequestModel.email());
+        }
+
+        userRepository.save(user);
+
+        return userMapper.toAbstract(user);
+    }
+
+    @Override
+    public void delete(Long id) {
+        var user = userRepository.findUserById(id);
+        userRepository.delete(user);
     }
 }
