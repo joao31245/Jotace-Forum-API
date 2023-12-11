@@ -3,9 +3,11 @@ package com.jotace.createusercleancode.main;
 import com.jotace.createusercleancode.application.boundary.UserInputBoundary;
 import com.jotace.createusercleancode.application.gateway.UserGateway;
 import com.jotace.createusercleancode.application.presenter.CreateUserPresenter;
+import com.jotace.createusercleancode.application.presenter.UpdateUserPresenter;
 import com.jotace.createusercleancode.application.usecases.UserInteractor;
 import com.jotace.createusercleancode.infra.impl.gateway.UserGatewayImpl;
 import com.jotace.createusercleancode.infra.impl.presenter.CreateUserPresenterImpl;
+import com.jotace.createusercleancode.infra.impl.presenter.UpdateUserPresenterImpl;
 import com.jotace.createusercleancode.infra.mapper.UserMapper;
 import com.jotace.createusercleancode.infra.persistence.UserEntityRepository;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class Config {
-
     @Bean
     UserInputBoundary userInputBoundary(UserInteractor userInteractor) {
         return userInteractor;
@@ -21,8 +22,9 @@ public class Config {
 
     @Bean
     UserInteractor createUserInteractor(UserGateway registerUserGateway,
-                                        CreateUserPresenter createUserPresenter) {
-        return new UserInteractor(registerUserGateway, createUserPresenter);
+                                        CreateUserPresenter createUserPresenter,
+                                        UpdateUserPresenter updateUserPresenter) {
+        return new UserInteractor(registerUserGateway, createUserPresenter, updateUserPresenter);
     }
     @Bean
     UserGateway registerUserGateway(UserGatewayImpl registerUser) {
@@ -44,4 +46,15 @@ public class Config {
     CreateUserPresenterImpl createUserPresenterImpl() {
         return new CreateUserPresenterImpl();
     }
+
+    @Bean
+    UpdateUserPresenter updateUserPresenter() {
+        return new UpdateUserPresenterImpl();
+    }
+
+    @Bean UpdateUserPresenterImpl updateUserPresenterImpl() {
+        return  new UpdateUserPresenterImpl();
+    }
+
+
 }
