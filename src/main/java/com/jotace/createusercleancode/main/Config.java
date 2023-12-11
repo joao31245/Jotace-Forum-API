@@ -1,10 +1,10 @@
 package com.jotace.createusercleancode.main;
 
-import com.jotace.createusercleancode.application.boundary.UserInputBoundary;
-import com.jotace.createusercleancode.application.gateway.UserGateway;
-import com.jotace.createusercleancode.application.presenter.CreateUserPresenter;
-import com.jotace.createusercleancode.application.presenter.UpdateUserPresenter;
-import com.jotace.createusercleancode.application.usecases.UserInteractor;
+import com.jotace.createusercleancode.application.boundary.user.UserInputBoundary;
+import com.jotace.createusercleancode.application.gateway.user.UserGateway;
+import com.jotace.createusercleancode.application.presenter.user.CreateUserPresenter;
+import com.jotace.createusercleancode.application.presenter.user.UpdateUserPresenter;
+import com.jotace.createusercleancode.application.usecases.user.UserInteractor;
 import com.jotace.createusercleancode.infra.impl.gateway.UserGatewayImpl;
 import com.jotace.createusercleancode.infra.impl.presenter.CreateUserPresenterImpl;
 import com.jotace.createusercleancode.infra.impl.presenter.UpdateUserPresenterImpl;

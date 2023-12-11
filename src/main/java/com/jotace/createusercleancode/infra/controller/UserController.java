@@ -1,10 +1,10 @@
 package com.jotace.createusercleancode.infra.controller;
 
-import com.jotace.createusercleancode.application.boundary.UserInputBoundary;
-import com.jotace.createusercleancode.application.model.UserRequestModel;
-import com.jotace.createusercleancode.application.model.UserResponseModel;
-import com.jotace.createusercleancode.application.model.UserUpdateRequestModel;
-import com.jotace.createusercleancode.application.model.UserUpdateResponseModel;
+import com.jotace.createusercleancode.application.boundary.user.UserInputBoundary;
+import com.jotace.createusercleancode.application.model.user.UserRequestModel;
+import com.jotace.createusercleancode.application.model.user.UserResponseModel;
+import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
+import com.jotace.createusercleancode.application.model.user.UserUpdateResponseModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

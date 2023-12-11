@@ -1,11 +1,11 @@
 package com.jotace.createusercleancode.interactor;
 
-import com.jotace.createusercleancode.application.gateway.UserGateway;
-import com.jotace.createusercleancode.application.model.UserRequestModel;
-import com.jotace.createusercleancode.application.model.UserResponseModel;
-import com.jotace.createusercleancode.application.presenter.CreateUserPresenter;
-import com.jotace.createusercleancode.application.presenter.UpdateUserPresenter;
-import com.jotace.createusercleancode.application.usecases.UserInteractor;
+import com.jotace.createusercleancode.application.gateway.user.UserGateway;
+import com.jotace.createusercleancode.application.model.user.UserRequestModel;
+import com.jotace.createusercleancode.application.model.user.UserResponseModel;
+import com.jotace.createusercleancode.application.presenter.user.CreateUserPresenter;
+import com.jotace.createusercleancode.application.presenter.user.UpdateUserPresenter;
+import com.jotace.createusercleancode.application.usecases.user.UserInteractor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

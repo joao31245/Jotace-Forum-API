@@ -1,8 +1,9 @@
 package com.jotace.createusercleancode.infra.impl.gateway;
 
-import com.jotace.createusercleancode.application.gateway.UserGateway;
-import com.jotace.createusercleancode.application.model.UserUpdateRequestModel;
+import com.jotace.createusercleancode.application.gateway.user.UserGateway;
+import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
 import com.jotace.createusercleancode.core.entity.user.User;
+import com.jotace.createusercleancode.core.exception.EmailAlreadyExistsException;
 import com.jotace.createusercleancode.infra.mapper.UserMapper;
 import com.jotace.createusercleancode.infra.persistence.UserEntityRepository;
 
@@ -19,14 +20,15 @@ public class UserGatewayImpl implements UserGateway {
     }
 
     @Override
-    public boolean existsByName(String name) {
-        return userRepository.existsByName(name);
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
     }
 
     @Override
     public User save(User user) {
-        if(existsByName(user.getName())) {
-            throw new RuntimeException("Already exists an user with this name");
+
+        if(userRepository.existsByEmail(user.getEmail())) {
+            throw new EmailAlreadyExistsException();
         }
 
        var userEntity = userMapper.toEntity(user);
