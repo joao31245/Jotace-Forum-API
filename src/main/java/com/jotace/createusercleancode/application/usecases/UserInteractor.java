@@ -8,7 +8,7 @@ import com.jotace.createusercleancode.application.model.UserUpdateRequestModel;
 import com.jotace.createusercleancode.application.model.UserUpdateResponseModel;
 import com.jotace.createusercleancode.application.presenter.CreateUserPresenter;
 import com.jotace.createusercleancode.application.presenter.UpdateUserPresenter;
-import com.jotace.createusercleancode.core.entity.CommonUserFactory;
+import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
 
 import java.time.LocalDateTime;
 import java.util.List;

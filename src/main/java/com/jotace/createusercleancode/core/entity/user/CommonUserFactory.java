@@ -1,4 +1,4 @@
-package com.jotace.createusercleancode.core.entity;
+package com.jotace.createusercleancode.core.entity.user;
 
 public class CommonUserFactory implements UserFactory {
     @Override

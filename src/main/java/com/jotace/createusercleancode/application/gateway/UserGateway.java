@@ -1,7 +1,7 @@
 package com.jotace.createusercleancode.application.gateway;
 
 import com.jotace.createusercleancode.application.model.UserUpdateRequestModel;
-import com.jotace.createusercleancode.core.entity.User;
+import com.jotace.createusercleancode.core.entity.user.User;
 
 import java.util.List;
 

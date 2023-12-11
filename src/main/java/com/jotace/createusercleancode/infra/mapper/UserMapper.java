@@ -1,7 +1,7 @@
 package com.jotace.createusercleancode.infra.mapper;
 
-import com.jotace.createusercleancode.core.entity.CommonUserFactory;
-import com.jotace.createusercleancode.core.entity.User;
+import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
+import com.jotace.createusercleancode.core.entity.user.User;
 import com.jotace.createusercleancode.infra.persistence.UserEntity;
 
 import java.time.LocalDateTime;

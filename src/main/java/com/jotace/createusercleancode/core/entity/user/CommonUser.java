@@ -1,6 +1,4 @@
-package com.jotace.createusercleancode.core.entity;
-
-import java.sql.Blob;
+package com.jotace.createusercleancode.core.entity.user;
 
 public class CommonUser implements User{
 

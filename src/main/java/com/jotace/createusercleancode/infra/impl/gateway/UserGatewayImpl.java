@@ -2,7 +2,7 @@ package com.jotace.createusercleancode.infra.impl.gateway;
 
 import com.jotace.createusercleancode.application.gateway.UserGateway;
 import com.jotace.createusercleancode.application.model.UserUpdateRequestModel;
-import com.jotace.createusercleancode.core.entity.User;
+import com.jotace.createusercleancode.core.entity.user.User;
 import com.jotace.createusercleancode.infra.mapper.UserMapper;
 import com.jotace.createusercleancode.infra.persistence.UserEntityRepository;
 
