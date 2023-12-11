@@ -1,5 +1,5 @@
 package com.jotace.createusercleancode.gateway.impl;
-import com.jotace.createusercleancode.application.model.UserUpdateRequestModel;
+import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
 import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
 import com.jotace.createusercleancode.core.entity.user.User;
 import com.jotace.createusercleancode.infra.impl.gateway.UserGatewayImpl;
@@ -31,7 +31,7 @@ public class UserGatewayImplTest {
 
         @Test
         void testSaveUser_WithNonExistingName_ShouldSaveSuccessfully() {
-            when(userRepository.existsByName(any())).thenReturn(false);
+            when(userRepository.existsByEmail(any())).thenReturn(false);
             when(userMapper.toEntity(any())).thenReturn(new UserEntity("example", "123", LocalDateTime.now(), "jotace@123"));
             when(userRepository.save(any())).thenReturn(new UserEntity("example", "123", LocalDateTime.now(), "jotace@123"));
             when(userMapper.toAbstract(any())).thenReturn(new CommonUserFactory().createUser("example", "123", "jotace@123"));
@@ -43,7 +43,7 @@ public class UserGatewayImplTest {
 
         @Test
         void testSaveUser_WithExistingName_ShouldThrowException() {
-            when(userRepository.existsByName(any())).thenReturn(true);
+            when(userRepository.existsByEmail(any())).thenReturn(true);
 
             assertThrows(RuntimeException.class, () -> userGateway.save(new CommonUserFactory().createUser("jotace", "123","jotace@123")));
         }
