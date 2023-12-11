@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.sql.Blob;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -16,7 +17,6 @@ import java.util.UUID;
 @Data
 @EqualsAndHashCode(of = "id")
 public class UserEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,11 +25,16 @@ public class UserEntity {
 
     private String password;
 
+    private String email;
+
+    private String image;
+
     private LocalDateTime creationTime;
 
-    public UserEntity(String name, String password, LocalDateTime now) {
+    public UserEntity(String name, String password, LocalDateTime now, String email) {
         this.name = name;
         this.password = password;
         this.creationTime = now;
+        this.email = email;
     }
 }
