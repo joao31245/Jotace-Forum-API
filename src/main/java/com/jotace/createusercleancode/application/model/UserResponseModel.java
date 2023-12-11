@@ -5,10 +5,13 @@ import com.jotace.createusercleancode.core.entity.User;
 import java.time.LocalDateTime;
 
 public record UserResponseModel(
+        Long id,
         String name,
-        LocalDateTime creationTIme
+        LocalDateTime creationTIme,
+        String email
 ) {
     public UserResponseModel(User user) {
-        this(user.getName(), LocalDateTime.now());
+        this(user.getId(), user.getName(), LocalDateTime.now(), user.getEmail());
     }
+
 }
