@@ -1,13 +1,13 @@
-package com.jotace.createusercleancode.application.usecases;
+package com.jotace.createusercleancode.application.usecases.user;
 
-import com.jotace.createusercleancode.application.boundary.UserInputBoundary;
-import com.jotace.createusercleancode.application.gateway.UserGateway;
-import com.jotace.createusercleancode.application.model.UserRequestModel;
-import com.jotace.createusercleancode.application.model.UserResponseModel;
-import com.jotace.createusercleancode.application.model.UserUpdateRequestModel;
-import com.jotace.createusercleancode.application.model.UserUpdateResponseModel;
-import com.jotace.createusercleancode.application.presenter.CreateUserPresenter;
-import com.jotace.createusercleancode.application.presenter.UpdateUserPresenter;
+import com.jotace.createusercleancode.application.boundary.user.UserInputBoundary;
+import com.jotace.createusercleancode.application.gateway.user.UserGateway;
+import com.jotace.createusercleancode.application.model.user.UserRequestModel;
+import com.jotace.createusercleancode.application.model.user.UserResponseModel;
+import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
+import com.jotace.createusercleancode.application.model.user.UserUpdateResponseModel;
+import com.jotace.createusercleancode.application.presenter.user.CreateUserPresenter;
+import com.jotace.createusercleancode.application.presenter.user.UpdateUserPresenter;
 import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
 
 import java.time.LocalDateTime;

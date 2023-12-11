@@ -1,12 +1,12 @@
-package com.jotace.createusercleancode.application.gateway;
+package com.jotace.createusercleancode.application.gateway.user;
 
-import com.jotace.createusercleancode.application.model.UserUpdateRequestModel;
+import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
 import com.jotace.createusercleancode.core.entity.user.User;
 
 import java.util.List;
 
 public interface UserGateway {
-    boolean existsByName(String name);
+    boolean existsByEmail(String email);
     User save(User user);
     List<User> getALlUser();
     User update(UserUpdateRequestModel userUpdateRequestModel);

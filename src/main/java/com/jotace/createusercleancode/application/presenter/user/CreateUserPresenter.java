@@ -1,6 +1,6 @@
-package com.jotace.createusercleancode.application.presenter;
+package com.jotace.createusercleancode.application.presenter.user;
 
-import com.jotace.createusercleancode.application.model.UserResponseModel;
+import com.jotace.createusercleancode.application.model.user.UserResponseModel;
 
 public interface CreateUserPresenter {
     UserResponseModel prepareSuccessView(UserResponseModel response);

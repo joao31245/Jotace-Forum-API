@@ -1,4 +1,4 @@
-package com.jotace.createusercleancode.application.model;
+package com.jotace.createusercleancode.application.model.user;
 
 import com.jotace.createusercleancode.core.entity.user.User;
 
