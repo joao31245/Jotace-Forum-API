@@ -1,4 +1,4 @@
-package com.jotace.createusercleancode.infra.impl.presenter;
+package com.jotace.createusercleancode.infra.impl.presenter.user;
 
 import com.jotace.createusercleancode.application.model.user.UserUpdateResponseModel;
 import com.jotace.createusercleancode.application.presenter.user.UpdateUserPresenter;
