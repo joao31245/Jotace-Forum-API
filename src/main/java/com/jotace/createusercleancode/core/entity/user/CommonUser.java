@@ -60,4 +60,9 @@ public class CommonUser implements User{
         return this.posts;
     }
 
+    @Override
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
 }

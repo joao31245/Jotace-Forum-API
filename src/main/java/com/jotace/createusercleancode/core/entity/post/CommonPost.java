@@ -18,6 +18,26 @@ public class CommonPost implements Post{
         this.category = category;
     }
 
+    public CommonPost(Long id,String title, String image, String description, User user, PostCategory category) {
+        this.id = id;
+        this.title = title;
+        this.image = image;
+        this.description = description;
+        this.owner = user;
+        this.category = category;
+    }
+
+
+    @Override
+    public Long getId() {
+        return this.id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Override
     public String getTitle() {
         return this.title;
