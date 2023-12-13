@@ -13,5 +13,6 @@ public interface User {
     String getImage();
     String getEmail();
     List<Post> getPosts();
+    void setPosts(List<Post> posts);
 
 }
