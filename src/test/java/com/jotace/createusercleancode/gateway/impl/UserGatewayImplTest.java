@@ -1,9 +1,10 @@
 package com.jotace.createusercleancode.gateway.impl;
 import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
+import com.jotace.createusercleancode.core.entity.post.Post;
 import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
 import com.jotace.createusercleancode.core.entity.user.User;
-import com.jotace.createusercleancode.infra.impl.gateway.UserGatewayImpl;
-import com.jotace.createusercleancode.infra.mapper.UserMapper;
+import com.jotace.createusercleancode.infra.impl.gateway.user.UserGatewayImpl;
+import com.jotace.createusercleancode.infra.mapper.user.UserMapper;
 import com.jotace.createusercleancode.infra.persistence.UserEntity;
 import com.jotace.createusercleancode.infra.persistence.UserEntityRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -70,7 +71,7 @@ public class UserGatewayImplTest {
 
         @Test
         void testDeleteUser_WithExistingUser_ShouldDeleteSuccessfully() {
-            when(userRepository.findUserById(any())).thenReturn(new UserEntity(1L,"example", "123", "example@gmail.com", "imageexample", LocalDateTime.now()));
+            when(userRepository.findUserById(any())).thenReturn(new UserEntity(1L,"example", "123", "example@gmail.com", "imageexample",LocalDateTime.now()));
 
             userGateway.delete(1L);
 
