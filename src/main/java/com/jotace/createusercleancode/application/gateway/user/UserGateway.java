@@ -10,8 +10,7 @@ public interface UserGateway {
     User save(User user);
     List<User> getALlUser();
     User update(UserUpdateRequestModel userUpdateRequestModel);
-
     void delete(Long id);
-
     User findUserById(Long id);
+    String encryptPassword(String password);
 }
