@@ -1,12 +1,11 @@
 package com.jotace.createusercleancode.gateway.impl;
 import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
-import com.jotace.createusercleancode.core.entity.post.Post;
 import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
 import com.jotace.createusercleancode.core.entity.user.User;
-import com.jotace.createusercleancode.infra.impl.gateway.user.UserGatewayImpl;
+import com.jotace.createusercleancode.infra.impl.gateway.user.crud.UserGatewayImpl;
 import com.jotace.createusercleancode.infra.mapper.user.UserMapper;
-import com.jotace.createusercleancode.infra.persistence.UserEntity;
-import com.jotace.createusercleancode.infra.persistence.UserEntityRepository;
+import com.jotace.createusercleancode.infra.persistence.user.UserEntity;
+import com.jotace.createusercleancode.infra.persistence.user.UserEntityRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

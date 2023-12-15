@@ -3,7 +3,7 @@ package com.jotace.createusercleancode.infra.impl.gateway.post;
 import com.jotace.createusercleancode.application.gateway.post.FindUserGateway;
 import com.jotace.createusercleancode.core.entity.user.User;
 import com.jotace.createusercleancode.infra.mapper.user.UserMapper;
-import com.jotace.createusercleancode.infra.persistence.UserEntityRepository;
+import com.jotace.createusercleancode.infra.persistence.user.UserEntityRepository;
 
 public class FindUserGatewayImpl implements FindUserGateway {
     private final UserEntityRepository userEntityRepository;

@@ -3,7 +3,6 @@ package com.jotace.createusercleancode.infra.impl.gateway.post;
 import com.jotace.createusercleancode.application.gateway.post.PostGateway;
 import com.jotace.createusercleancode.application.model.post.PostUpdateRequestModel;
 import com.jotace.createusercleancode.core.entity.post.Post;
-import com.jotace.createusercleancode.core.entity.user.User;
 import com.jotace.createusercleancode.infra.mapper.post.PostMapper;
 import com.jotace.createusercleancode.infra.persistence.post.PostEntityRepository;
 

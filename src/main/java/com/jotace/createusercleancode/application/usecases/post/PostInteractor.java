@@ -3,12 +3,12 @@ package com.jotace.createusercleancode.application.usecases.post;
 import com.jotace.createusercleancode.application.gateway.post.FindUserGateway;
 import com.jotace.createusercleancode.application.boundary.post.PostInputBoundary;
 import com.jotace.createusercleancode.application.gateway.post.PostGateway;
+import com.jotace.createusercleancode.application.presenter.post.CreatePostPresenter;
+import com.jotace.createusercleancode.core.entity.post.CommonPostFactory;
 import com.jotace.createusercleancode.application.model.post.PostRequestModel;
 import com.jotace.createusercleancode.application.model.post.PostResponseModel;
 import com.jotace.createusercleancode.application.model.post.PostUpdateRequestModel;
 import com.jotace.createusercleancode.application.model.post.PostUpdateResponseModel;
-import com.jotace.createusercleancode.application.presenter.post.CreatePostPresenter;
-import com.jotace.createusercleancode.core.entity.post.CommonPostFactory;
 
 import java.util.List;
 
