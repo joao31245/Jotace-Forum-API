@@ -1,11 +1,12 @@
-package com.jotace.createusercleancode.infra.impl.gateway.user;
+package com.jotace.createusercleancode.infra.impl.gateway.user.crud;
 
 import com.jotace.createusercleancode.application.gateway.user.UserGateway;
 import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
 import com.jotace.createusercleancode.core.entity.user.User;
 import com.jotace.createusercleancode.core.exception.EmailAlreadyExistsException;
 import com.jotace.createusercleancode.infra.mapper.user.UserMapper;
-import com.jotace.createusercleancode.infra.persistence.UserEntityRepository;
+import com.jotace.createusercleancode.infra.persistence.user.UserEntityRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,16 +27,17 @@ public class UserGatewayImpl implements UserGateway {
 
     @Override
     public User save(User user) {
-
         if(userRepository.existsByEmail(user.getEmail())) {
             throw new EmailAlreadyExistsException();
         }
 
-       var userEntity = userMapper.toEntity(user);
+        var userEntity = userMapper.toEntity(user);
 
-       userRepository.save(userEntity);
+        userEntity.setPassword(encryptPassword(user.getPassword()));
 
-       return userMapper.toAbstract(userEntity);
+        userRepository.save(userEntity);
+
+        return userMapper.toAbstract(userEntity);
 
     }
 
@@ -75,5 +77,9 @@ public class UserGatewayImpl implements UserGateway {
     @Override
     public User findUserById(Long id) {
         return userMapper.toAbstract(userRepository.findUserById(id));
+    }
+    @Override
+    public String encryptPassword(String password) {
+        return new BCryptPasswordEncoder().encode(password);
     }
 }

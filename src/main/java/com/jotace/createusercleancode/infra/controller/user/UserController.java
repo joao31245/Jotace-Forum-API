@@ -7,6 +7,7 @@ import com.jotace.createusercleancode.application.model.user.UserUpdateRequestMo
 import com.jotace.createusercleancode.application.model.user.UserUpdateResponseModel;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,15 +19,18 @@ public class UserController {
     public UserController(UserInputBoundary userInputBoundary) {
         this.userInputBoundary = userInputBoundary;
     }
-    @PostMapping
+    @PostMapping("/register")
+    @Transactional
     public ResponseEntity<UserResponseModel> createUser(@RequestBody @Valid UserRequestModel userRequestModel) {
        return ResponseEntity.ok(userInputBoundary.create(userRequestModel));
     }
     @GetMapping
+    @Transactional
     public ResponseEntity<List<UserResponseModel>> getAllUsers() {
         return ResponseEntity.ok(userInputBoundary.getAllUsers());
     }
     @PutMapping
+    @Transactional
     public ResponseEntity<UserUpdateResponseModel> updateUser(@RequestBody @Valid UserUpdateRequestModel requestModel) {
        return ResponseEntity.ok(userInputBoundary.update(requestModel));
     }
