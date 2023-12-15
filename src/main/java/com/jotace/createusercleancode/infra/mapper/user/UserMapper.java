@@ -4,7 +4,7 @@ import com.jotace.createusercleancode.core.entity.post.CommonPostFactory;
 import com.jotace.createusercleancode.core.entity.post.Post;
 import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
 import com.jotace.createusercleancode.core.entity.user.User;
-import com.jotace.createusercleancode.infra.persistence.UserEntity;
+import com.jotace.createusercleancode.infra.persistence.user.UserEntity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
