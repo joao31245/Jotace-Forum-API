@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+src/main/java/com/jotace/createusercleancode/application/exception/FailException.java
+src/main/java/com/jotace/createusercleancode/application/gateway/RegisterUserGateway.java
