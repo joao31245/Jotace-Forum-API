@@ -1,6 +1,6 @@
 package com.jotace.createusercleancode.infra.controller.user;
 
-import com.jotace.createusercleancode.application.boundary.user.UserInputBoundary;
+import com.jotace.createusercleancode.core.boundary.user.UserInputBoundary;
 import com.jotace.createusercleancode.application.model.user.UserRequestModel;
 import com.jotace.createusercleancode.application.model.user.UserResponseModel;
 import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
@@ -39,4 +39,9 @@ public class UserController {
         return ResponseEntity.ok(userInputBoundary.findUserById(id));
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity deleteUserById(@PathVariable Long id) {
+        userInputBoundary.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

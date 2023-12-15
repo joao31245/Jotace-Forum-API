@@ -1,13 +1,12 @@
 package com.jotace.createusercleancode.application.usecases.user;
 
-import com.jotace.createusercleancode.application.boundary.user.UserInputBoundary;
+import com.jotace.createusercleancode.core.boundary.user.UserInputBoundary;
 import com.jotace.createusercleancode.application.gateway.user.UserGateway;
 import com.jotace.createusercleancode.application.model.user.*;
 import com.jotace.createusercleancode.application.presenter.user.CreateUserPresenter;
 import com.jotace.createusercleancode.application.presenter.user.UpdateUserPresenter;
 import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class UserInteractor implements UserInputBoundary {

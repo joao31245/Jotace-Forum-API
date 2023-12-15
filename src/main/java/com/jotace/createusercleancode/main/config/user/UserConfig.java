@@ -1,6 +1,6 @@
 package com.jotace.createusercleancode.main.config.user;
 
-import com.jotace.createusercleancode.application.boundary.user.UserInputBoundary;
+import com.jotace.createusercleancode.core.boundary.user.UserInputBoundary;
 import com.jotace.createusercleancode.application.gateway.user.UserGateway;
 import com.jotace.createusercleancode.application.presenter.user.CreateUserPresenter;
 import com.jotace.createusercleancode.application.presenter.user.UpdateUserPresenter;

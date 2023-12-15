@@ -1,4 +1,4 @@
-package com.jotace.createusercleancode.application.boundary.user;
+package com.jotace.createusercleancode.core.boundary.user;
 
 import com.jotace.createusercleancode.application.model.user.UserRequestModel;
 import com.jotace.createusercleancode.application.model.user.UserResponseModel;
