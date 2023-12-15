@@ -1,4 +1,4 @@
-package com.jotace.createusercleancode.application.boundary.user.auth;
+package com.jotace.createusercleancode.core.boundary.user.auth;
 
 import com.jotace.createusercleancode.application.model.auth.AuthRequestModel;
 import com.jotace.createusercleancode.application.model.auth.AuthResponseModel;

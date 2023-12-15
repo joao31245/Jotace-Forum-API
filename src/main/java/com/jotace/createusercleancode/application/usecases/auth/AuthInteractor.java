@@ -1,6 +1,6 @@
 package com.jotace.createusercleancode.application.usecases.auth;
 
-import com.jotace.createusercleancode.application.boundary.user.auth.AuthInputBoundary;
+import com.jotace.createusercleancode.core.boundary.user.auth.AuthInputBoundary;
 import com.jotace.createusercleancode.application.gateway.user.auth.AuthGateway;
 import com.jotace.createusercleancode.application.model.auth.AuthRequestModel;
 import com.jotace.createusercleancode.application.model.auth.AuthResponseModel;

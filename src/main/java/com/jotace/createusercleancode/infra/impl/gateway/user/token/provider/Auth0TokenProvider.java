@@ -6,7 +6,7 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.jotace.createusercleancode.application.gateway.user.token.provider.TokenProvider;
 import com.jotace.createusercleancode.core.entity.user.User;
-import com.jotace.createusercleancode.core.exception.CreateJWTToken;
+import com.jotace.createusercleancode.core.exception.CreateJWTTokenException;
 import com.jotace.createusercleancode.core.exception.VerificationJWTToken;
 import com.jotace.createusercleancode.infra.mapper.user.UserMapper;
 import com.jotace.createusercleancode.infra.persistence.user.UserEntity;
@@ -38,7 +38,7 @@ public class Auth0TokenProvider implements TokenProvider {
                     .withExpiresAt(expirationDate())
                     .sign(algorithm);
         } catch (JWTCreationException exception) {
-            throw new CreateJWTToken();
+            throw new CreateJWTTokenException("Fail while create token");
         }
     }
 
@@ -52,7 +52,7 @@ public class Auth0TokenProvider implements TokenProvider {
                     .verify(token)
                     .getSubject();
         } catch (JWTVerificationException exception){
-            throw new VerificationJWTToken();
+            throw new VerificationJWTToken("Fail while verify post");
         }
     }
 

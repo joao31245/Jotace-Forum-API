@@ -1,6 +1,6 @@
 package com.jotace.createusercleancode.main.config.auth;
 
-import com.jotace.createusercleancode.application.boundary.user.auth.AuthInputBoundary;
+import com.jotace.createusercleancode.core.boundary.user.auth.AuthInputBoundary;
 import com.jotace.createusercleancode.application.gateway.user.auth.AuthGateway;
 import com.jotace.createusercleancode.application.gateway.user.token.provider.TokenProvider;
 import com.jotace.createusercleancode.application.presenter.user.auth.LoginUserPresenter;
