@@ -1,6 +1,6 @@
 package com.jotace.createusercleancode.main.config.post;
 
-import com.jotace.createusercleancode.application.boundary.post.PostInputBoundary;
+import com.jotace.createusercleancode.core.boundary.post.PostInputBoundary;
 import com.jotace.createusercleancode.application.gateway.post.FindUserGateway;
 import com.jotace.createusercleancode.application.gateway.post.PostGateway;
 import com.jotace.createusercleancode.application.presenter.post.CreatePostPresenter;

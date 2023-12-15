@@ -1,4 +1,4 @@
-package com.jotace.createusercleancode.application.boundary.post;
+package com.jotace.createusercleancode.core.boundary.post;
 
 import com.jotace.createusercleancode.application.model.post.PostRequestModel;
 import com.jotace.createusercleancode.application.model.post.PostResponseModel;
@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface PostInputBoundary {
     PostResponseModel create(PostRequestModel postRequestModel);
-    List<PostResponseModel> findPostByOwnerId(Long ownerId);
+    PostResponseModel findPostById(Long id);
     List<PostResponseModel> getAllPosts();
     void delete(Long id);
     PostUpdateResponseModel update(PostUpdateRequestModel requestModel);

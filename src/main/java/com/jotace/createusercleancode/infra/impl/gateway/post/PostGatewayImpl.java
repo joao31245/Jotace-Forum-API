@@ -3,8 +3,12 @@ package com.jotace.createusercleancode.infra.impl.gateway.post;
 import com.jotace.createusercleancode.application.gateway.post.PostGateway;
 import com.jotace.createusercleancode.application.model.post.PostUpdateRequestModel;
 import com.jotace.createusercleancode.core.entity.post.Post;
+import com.jotace.createusercleancode.core.exception.PostIsNullException;
 import com.jotace.createusercleancode.infra.mapper.post.PostMapper;
 import com.jotace.createusercleancode.infra.persistence.post.PostEntityRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostGatewayImpl implements PostGateway {
     private final PostEntityRepository postEntityRepository;
@@ -26,20 +30,56 @@ public class PostGatewayImpl implements PostGateway {
 
     @Override
     public Post update(PostUpdateRequestModel postUpdateRequestModel) {
-        var post = postEntityRepository.findPostById(postUpdateRequestModel.postId());
+        try {
+            var post = postEntityRepository.findPostById(postUpdateRequestModel.postId());
 
-        if(postUpdateRequestModel.title() != null) {
-            post.setTitle(postUpdateRequestModel.title());
+            if(postUpdateRequestModel.title() != null) {
+                post.setTitle(postUpdateRequestModel.title());
+            }
+
+            if(postUpdateRequestModel.description() != null) {
+                post.setDescription(postUpdateRequestModel.description());
+            }
+
+            this.postEntityRepository.save(post);
+
+            var abstractPost = postMapper.toAbstract(post);
+
+
+            return abstractPost;
+
+        } catch (NullPointerException exception) {
+            throw new PostIsNullException("Post is null");
         }
 
-        if(postUpdateRequestModel.description() != null) {
-            post.setDescription(postUpdateRequestModel.description());
+    }
+
+    @Override
+    public Post findPostById(Long id) {
+        try {
+            var post = postEntityRepository.findPostById(id);
+            return postMapper.toAbstract(post);
+        } catch (NullPointerException exception) {
+            throw new PostIsNullException("Post is null");
         }
-        var abstractPost = postMapper.toAbstract(post);
+    }
 
-        this.save(abstractPost);
+    @Override
+    public void delete(Long id) {
+        postEntityRepository.deleteById(id);
+    }
 
-        return abstractPost;
+    @Override
+    public List<Post> getAllPosts() {
+        var listPosts = postEntityRepository.findAll();
+
+        var abstractPosts = new ArrayList<Post>();
+
+        listPosts.forEach(postEntity -> {
+            abstractPosts.add(postMapper.toAbstract(postEntity));
+        });
+
+        return abstractPosts;
     }
 
 }
