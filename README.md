@@ -1,7 +1,7 @@
 # Jotace Forum.
 
-Esse projeto inteiro foi feito com o intuito, de, aprender sobre clean architecture,
-é um projeto pessoal feito do zero por mim mesmo e eu depositei muito carinho e esforço nele.
+Esse projeto inteiro foi feito com o intuito, de, aprender sobre clean architecture.
+É um projeto pessoal feito do zero e eu depositei muito carinho e esforço nele.
 ## 🚀 Começando
 
 Para conseguir uma cópia do projeto somente será necessário clicar em code e download zip.
