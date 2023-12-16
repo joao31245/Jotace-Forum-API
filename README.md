@@ -24,21 +24,26 @@ A instalação se baseia somente em instalar a Ide(InteliJ) e rodar o código.
 (A própria ide resolve o resto para você.
 ## Como usar
 
-### Controller user
-A aplicação contem um usuário que tem, foto de perfil, nome, email, senha e posts.
+### Controllers
+A aplicação contem um usuário que contem, foto de perfil, nome, email, senha e posts.
 Foi construida com o intuito de que um usuário tenha vários posts e vários posts tenham somente um usuário.
+
 O controller do usuário faz o crud básico permitindo, deletar, atualizar, criar e selecionar. Porém, esses
 metodos só podem ser utilzados após a autenticação via Token JWT, que foi implantada de acordo com, meu 
 entendimento do que é o clean architecture.
+
+A aplicação contem também uma entidade de posts, que contem um titulo, descrição, imagem e categória.
+
+Categória sendo um enum que contem: front-end, back-end, mobile e games(Até então).
 
 Para a utilização da API é recomendado utilizar o insominia para fazer as requisições, já que, quando é feito
 uma requisição pelo swagger(Biblioteca de documentação dinamica. Falarei mais sobre abaixo) o código apresenta
 alguns bugs de autenticação que eu ainda não resolvi.
 
 Portanto, toda via, a documentação da api pode ser consultada pelo swagger acessando o link: http://localhost:8080/swagger-ui/index.html#
+(lembrando que para utilizar a documentação, é necessário rodar a API).
 
-A documentação acima, apresenta exemplos de como realizar todas as requisições da api, com exemplos, descrições(Ainda não completa para todas
-as requisições) e até mesmo consulta real na api, porém o swagger parece não conseguir fazer auutenticação(Vou procurar uma resolução para isso).
+A documentação acima, apresenta exemplos de como realizar todas as requisições da api, com exemplos, descrições(Ainda não completa para todas as requisições) e até mesmo consultas reais na api, porém o swagger parece não conseguir fazer autenticação(Vou procurar uma resolução para isso), o que impede de se utilzar o endpoint de login, e por isso é extremamente necessário usar o insominia.
 
 ## Futuras melhorias
 
