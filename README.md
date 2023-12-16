@@ -95,7 +95,7 @@ Estou realmente animado para fazer isso.
 ### Login por google
 
 Pra ajudar no dinamismo do login, seria bem legal utilizar o login via conta do google, algo que sinceramente,
-quando um site não tem, eu sei que várias pessoas até desistem de usar não é mesmo?
+quando um site não tem, eu sei que várias pessoas até desistem de usar, não é mesmo?
 
 ### Por fim o Front
 
