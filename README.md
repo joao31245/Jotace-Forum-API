@@ -64,18 +64,18 @@ eu ainda não sei fazer, e estou bem animado para fazer acontecer.
 
 No momento da criação da entidade de post, eu percebi que, por mais que não estivesse nos meus planos(Nada estava na verdade),
 séria muito interessante uma feature onde, séria póssivel adicionar comentários em cada post, parecido com a relação de usuário,
-para posts, onde um usuário tem vários posts, porém um post tería vários comentarios(legal né ?).
+para posts, onde um usuário tem vários posts, porém um post tería vários comentarios(legal né?).
 
 ### 3.0 Curtidas
 
-Seguindo a mesma lógica dos comentários, porque não adicinoar curtidas ? deixaria mais parecido com um forum ou uma rede social,
+Seguindo a mesma lógica dos comentários, porque não adicinoar curtidas? deixaria mais parecido com um forum ou uma rede social,
 para programadores.
 
 ### 4.0 Filtro
 
 Agora algo mais interessante ainda.
-No dia a dia, quando utilzamos um forum ou uma rede social, é obvio que queremos ver algo do nosso interesse né ?
-Como um post tem uma categoria, porque não fazer uma paginação dinamica, de acordo com o que o usuário curtir ?,
+No dia a dia, quando utilzamos um forum ou uma rede social, é obvio que queremos ver algo do nosso interesse né?
+Como um post tem uma categoria, porque não fazer uma paginação dinamica, de acordo com o que o usuário curtir?,
 seria algo como selecionar quantas curtidas você deu em determinada categoria e fazer co que ela aparessa mais do que as outras.
 
 Pense no número 6, suponha que temos 3 categorias assim :
