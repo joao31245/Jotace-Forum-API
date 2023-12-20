@@ -1,7 +1,7 @@
 package com.jotace.createusercleancode.core.boundary.user.auth;
 
-import com.jotace.createusercleancode.application.model.auth.AuthRequestModel;
-import com.jotace.createusercleancode.application.model.auth.AuthResponseModel;
+import com.jotace.createusercleancode.core.model.auth.AuthRequestModel;
+import com.jotace.createusercleancode.core.model.auth.AuthResponseModel;
 
 import javax.naming.AuthenticationException;
 

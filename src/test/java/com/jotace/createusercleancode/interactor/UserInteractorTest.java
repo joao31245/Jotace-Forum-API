@@ -1,8 +1,8 @@
 package com.jotace.createusercleancode.interactor;
 
 import com.jotace.createusercleancode.application.gateway.user.UserGateway;
-import com.jotace.createusercleancode.application.model.user.UserRequestModel;
-import com.jotace.createusercleancode.application.model.user.UserResponseModel;
+import com.jotace.createusercleancode.core.model.user.UserRequestModel;
+import com.jotace.createusercleancode.core.model.user.UserResponseModel;
 import com.jotace.createusercleancode.application.presenter.user.CreateUserPresenter;
 import com.jotace.createusercleancode.application.presenter.user.UpdateUserPresenter;
 import com.jotace.createusercleancode.application.usecases.user.UserInteractor;

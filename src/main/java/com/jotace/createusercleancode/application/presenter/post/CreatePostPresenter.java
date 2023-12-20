@@ -1,6 +1,6 @@
 package com.jotace.createusercleancode.application.presenter.post;
 
-import com.jotace.createusercleancode.application.model.post.PostResponseModel;
+import com.jotace.createusercleancode.core.model.post.PostResponseModel;
 
 public interface CreatePostPresenter {
     PostResponseModel prepareSuccessView(PostResponseModel response);

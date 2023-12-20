@@ -1,4 +1,4 @@
-package com.jotace.createusercleancode.application.model.user;
+package com.jotace.createusercleancode.core.model.user;
 
 import com.jotace.createusercleancode.core.entity.post.Post;
 import com.jotace.createusercleancode.core.entity.post.PostCategory;

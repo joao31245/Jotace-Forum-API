@@ -1,9 +1,9 @@
 package com.jotace.createusercleancode.core.boundary.post;
 
-import com.jotace.createusercleancode.application.model.post.PostRequestModel;
-import com.jotace.createusercleancode.application.model.post.PostResponseModel;
-import com.jotace.createusercleancode.application.model.post.PostUpdateRequestModel;
-import com.jotace.createusercleancode.application.model.post.PostUpdateResponseModel;
+import com.jotace.createusercleancode.core.model.post.PostRequestModel;
+import com.jotace.createusercleancode.core.model.post.PostResponseModel;
+import com.jotace.createusercleancode.core.model.post.PostUpdateRequestModel;
+import com.jotace.createusercleancode.core.model.post.PostUpdateResponseModel;
 
 import java.util.List;
 

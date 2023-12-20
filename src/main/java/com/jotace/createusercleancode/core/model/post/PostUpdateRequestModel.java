@@ -1,4 +1,4 @@
-package com.jotace.createusercleancode.application.model.post;
+package com.jotace.createusercleancode.core.model.post;
 
 public record PostUpdateRequestModel(
         Long postId,

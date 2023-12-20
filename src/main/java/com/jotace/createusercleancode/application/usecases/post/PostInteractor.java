@@ -5,10 +5,10 @@ import com.jotace.createusercleancode.core.boundary.post.PostInputBoundary;
 import com.jotace.createusercleancode.application.gateway.post.PostGateway;
 import com.jotace.createusercleancode.application.presenter.post.CreatePostPresenter;
 import com.jotace.createusercleancode.core.entity.post.CommonPostFactory;
-import com.jotace.createusercleancode.application.model.post.PostRequestModel;
-import com.jotace.createusercleancode.application.model.post.PostResponseModel;
-import com.jotace.createusercleancode.application.model.post.PostUpdateRequestModel;
-import com.jotace.createusercleancode.application.model.post.PostUpdateResponseModel;
+import com.jotace.createusercleancode.core.model.post.PostRequestModel;
+import com.jotace.createusercleancode.core.model.post.PostResponseModel;
+import com.jotace.createusercleancode.core.model.post.PostUpdateRequestModel;
+import com.jotace.createusercleancode.core.model.post.PostUpdateResponseModel;
 import com.jotace.createusercleancode.core.exception.UserIsNullException;
 
 import java.util.List;

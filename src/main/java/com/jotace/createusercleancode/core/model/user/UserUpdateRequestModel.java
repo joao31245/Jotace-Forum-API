@@ -1,4 +1,4 @@
-package com.jotace.createusercleancode.application.model.user;
+package com.jotace.createusercleancode.core.model.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

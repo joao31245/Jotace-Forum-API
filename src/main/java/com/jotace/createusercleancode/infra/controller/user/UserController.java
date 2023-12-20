@@ -1,10 +1,10 @@
 package com.jotace.createusercleancode.infra.controller.user;
 
 import com.jotace.createusercleancode.core.boundary.user.UserInputBoundary;
-import com.jotace.createusercleancode.application.model.user.UserRequestModel;
-import com.jotace.createusercleancode.application.model.user.UserResponseModel;
-import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
-import com.jotace.createusercleancode.application.model.user.UserUpdateResponseModel;
+import com.jotace.createusercleancode.core.model.user.UserRequestModel;
+import com.jotace.createusercleancode.core.model.user.UserResponseModel;
+import com.jotace.createusercleancode.core.model.user.UserUpdateRequestModel;
+import com.jotace.createusercleancode.core.model.user.UserUpdateResponseModel;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

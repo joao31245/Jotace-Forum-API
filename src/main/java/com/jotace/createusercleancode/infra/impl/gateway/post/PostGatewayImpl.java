@@ -1,7 +1,7 @@
 package com.jotace.createusercleancode.infra.impl.gateway.post;
 
 import com.jotace.createusercleancode.application.gateway.post.PostGateway;
-import com.jotace.createusercleancode.application.model.post.PostUpdateRequestModel;
+import com.jotace.createusercleancode.core.model.post.PostUpdateRequestModel;
 import com.jotace.createusercleancode.core.entity.post.Post;
 import com.jotace.createusercleancode.core.exception.PostIsNullException;
 import com.jotace.createusercleancode.infra.mapper.post.PostMapper;

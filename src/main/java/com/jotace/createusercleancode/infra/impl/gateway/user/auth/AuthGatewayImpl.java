@@ -2,7 +2,7 @@ package com.jotace.createusercleancode.infra.impl.gateway.user.auth;
 
 import com.jotace.createusercleancode.application.gateway.user.auth.AuthGateway;
 import com.jotace.createusercleancode.application.gateway.user.token.provider.TokenProvider;
-import com.jotace.createusercleancode.application.model.auth.AuthRequestModel;
+import com.jotace.createusercleancode.core.model.auth.AuthRequestModel;
 import com.jotace.createusercleancode.core.entity.user.User;
 import com.jotace.createusercleancode.infra.mapper.user.UserMapper;
 import com.jotace.createusercleancode.infra.persistence.user.UserEntity;

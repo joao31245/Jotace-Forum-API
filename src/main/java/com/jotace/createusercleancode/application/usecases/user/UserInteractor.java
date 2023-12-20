@@ -2,10 +2,13 @@ package com.jotace.createusercleancode.application.usecases.user;
 
 import com.jotace.createusercleancode.core.boundary.user.UserInputBoundary;
 import com.jotace.createusercleancode.application.gateway.user.UserGateway;
-import com.jotace.createusercleancode.application.model.user.*;
 import com.jotace.createusercleancode.application.presenter.user.CreateUserPresenter;
 import com.jotace.createusercleancode.application.presenter.user.UpdateUserPresenter;
 import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
+import com.jotace.createusercleancode.core.model.user.UserRequestModel;
+import com.jotace.createusercleancode.core.model.user.UserResponseModel;
+import com.jotace.createusercleancode.core.model.user.UserUpdateRequestModel;
+import com.jotace.createusercleancode.core.model.user.UserUpdateResponseModel;
 
 import java.util.List;
 

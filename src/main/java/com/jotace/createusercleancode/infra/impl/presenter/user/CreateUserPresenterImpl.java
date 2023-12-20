@@ -1,6 +1,6 @@
 package com.jotace.createusercleancode.infra.impl.presenter.user;
 
-import com.jotace.createusercleancode.application.model.user.UserResponseModel;
+import com.jotace.createusercleancode.core.model.user.UserResponseModel;
 import com.jotace.createusercleancode.application.presenter.user.CreateUserPresenter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

@@ -1,7 +1,7 @@
 package com.jotace.createusercleancode.infra.impl.gateway.user.crud;
 
 import com.jotace.createusercleancode.application.gateway.user.UserGateway;
-import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
+import com.jotace.createusercleancode.core.model.user.UserUpdateRequestModel;
 import com.jotace.createusercleancode.core.entity.user.User;
 import com.jotace.createusercleancode.core.exception.EmailAlreadyExistsException;
 import com.jotace.createusercleancode.infra.mapper.user.UserMapper;

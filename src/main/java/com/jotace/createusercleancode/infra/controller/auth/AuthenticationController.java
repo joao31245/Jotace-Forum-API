@@ -1,8 +1,8 @@
 package com.jotace.createusercleancode.infra.controller.auth;
 
 import com.jotace.createusercleancode.core.boundary.user.auth.AuthInputBoundary;
-import com.jotace.createusercleancode.application.model.auth.AuthRequestModel;
-import com.jotace.createusercleancode.application.model.auth.AuthResponseModel;
+import com.jotace.createusercleancode.core.model.auth.AuthRequestModel;
+import com.jotace.createusercleancode.core.model.auth.AuthResponseModel;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

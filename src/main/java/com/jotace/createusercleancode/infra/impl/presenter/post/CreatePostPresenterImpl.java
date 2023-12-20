@@ -1,6 +1,6 @@
 package com.jotace.createusercleancode.infra.impl.presenter.post;
 
-import com.jotace.createusercleancode.application.model.post.PostResponseModel;
+import com.jotace.createusercleancode.core.model.post.PostResponseModel;
 import com.jotace.createusercleancode.application.presenter.post.CreatePostPresenter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

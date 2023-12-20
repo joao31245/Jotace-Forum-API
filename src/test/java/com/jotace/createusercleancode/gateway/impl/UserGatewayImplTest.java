@@ -1,5 +1,5 @@
 package com.jotace.createusercleancode.gateway.impl;
-import com.jotace.createusercleancode.application.model.user.UserUpdateRequestModel;
+import com.jotace.createusercleancode.core.model.user.UserUpdateRequestModel;
 import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
 import com.jotace.createusercleancode.core.entity.user.User;
 import com.jotace.createusercleancode.infra.impl.gateway.user.crud.UserGatewayImpl;

@@ -1,6 +1,6 @@
 package com.jotace.createusercleancode.application.presenter.user;
 
-import com.jotace.createusercleancode.application.model.user.UserUpdateResponseModel;
+import com.jotace.createusercleancode.core.model.user.UserUpdateResponseModel;
 
 public interface UpdateUserPresenter {
 
