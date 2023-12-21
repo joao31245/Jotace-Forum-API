@@ -8,6 +8,7 @@ import com.jotace.createusercleancode.infra.mapper.user.UserMapper;
 import com.jotace.createusercleancode.infra.persistence.user.UserEntityRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +46,8 @@ public class UserGatewayImpl implements UserGateway {
     public List<User> getALlUser() {
         var list = userRepository.findAllUserEntity();
 
+        System.out.println(list);
+
         List<User> abstractList = new ArrayList<>();
 
         list.forEach(user -> {
@@ -81,5 +84,12 @@ public class UserGatewayImpl implements UserGateway {
     @Override
     public String encryptPassword(String password) {
         return new BCryptPasswordEncoder().encode(password);
+    }
+
+    @Override
+    public Blob insertImage(Blob image) {
+
+
+        return null;
     }
 }

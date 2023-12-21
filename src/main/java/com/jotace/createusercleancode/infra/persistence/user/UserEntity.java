@@ -34,13 +34,23 @@ public class UserEntity implements UserDetails {
 
     private String email;
 
-    private String image;
+    @Lob
+    private Blob image;
+
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<PostEntity> posts;
 
     private LocalDateTime creationTime;
+
+    public UserEntity(String name, String password, LocalDateTime now, String email, Blob image) {
+        this.name = name;
+        this.password = password;
+        this.creationTime = now;
+        this.email = email;
+        this.image = image;
+    }
 
     public UserEntity(String name, String password, LocalDateTime now, String email) {
         this.name = name;

@@ -1,10 +1,8 @@
 package com.jotace.createusercleancode.infra.controller.user;
 
+import com.jotace.createusercleancode.core.boundary.user.UserImageBoundary;
 import com.jotace.createusercleancode.core.boundary.user.UserInputBoundary;
-import com.jotace.createusercleancode.core.model.user.UserRequestModel;
-import com.jotace.createusercleancode.core.model.user.UserResponseModel;
-import com.jotace.createusercleancode.core.model.user.UserUpdateRequestModel;
-import com.jotace.createusercleancode.core.model.user.UserUpdateResponseModel;
+import com.jotace.createusercleancode.core.model.user.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -13,7 +11,9 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -21,8 +21,11 @@ import java.util.List;
 @Tag(name = "Jotace forum")
 public class UserController {
     private final UserInputBoundary userInputBoundary;
-    public UserController(UserInputBoundary userInputBoundary) {
+
+    private final UserImageBoundary userImageBoundary;
+    public UserController(UserInputBoundary userInputBoundary, UserImageBoundary userImageBoundary) {
         this.userInputBoundary = userInputBoundary;
+        this.userImageBoundary = userImageBoundary;
     }
     @PostMapping("/register")
     @Transactional
@@ -34,7 +37,7 @@ public class UserController {
             @ApiResponse(responseCode = "403", description = "Authentication error")
 
     })
-    public ResponseEntity<UserResponseModel> createUser(@RequestBody @Valid UserRequestModel userRequestModel) {
+    public ResponseEntity<UserResponseModel> createUser(@RequestBody @Valid UserRequestModel userRequestModel) throws SQLException {
        return ResponseEntity.ok(userInputBoundary.create(userRequestModel));
     }
 
@@ -46,7 +49,7 @@ public class UserController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error"),
             @ApiResponse(responseCode = "403", description = "Authentication error")
     })
-    public ResponseEntity<List<UserResponseModel>> getAllUsers() {
+    public ResponseEntity<List<UserResponseModel>> getAllUsers() throws SQLException {
         return ResponseEntity.ok(userInputBoundary.getAllUsers());
     }
     @PutMapping
@@ -70,7 +73,7 @@ public class UserController {
             @ApiResponse(responseCode = "404", description = "User not found")
 
     })
-    public ResponseEntity<UserResponseModel> findUserById(@PathVariable Long id) {
+    public ResponseEntity<UserResponseModel> findUserById(@PathVariable Long id) throws SQLException {
         return ResponseEntity.ok(userInputBoundary.findUserById(id));
     }
 
@@ -86,5 +89,22 @@ public class UserController {
     public ResponseEntity deleteUserById(@PathVariable Long id) {
         userInputBoundary.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @Operation(summary = "Insert a profile image", method = "PUT")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Worked!"),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error"),
+            @ApiResponse(responseCode = "403", description = "Authentication error"),
+            @ApiResponse(responseCode = "404", description = "User not found")
+    })
+
+    @PutMapping("/image/{id}")
+    public ResponseEntity<SetProfileImageResponseModel> setProfileImage(
+            @PathVariable Long id,
+            @RequestPart("image")MultipartFile multipartFile) {
+
+        return ResponseEntity.ok(userImageBoundary.setProfileImage(multipartFile, id));
+
     }
 }

@@ -5,11 +5,16 @@ import com.jotace.createusercleancode.application.gateway.user.UserGateway;
 import com.jotace.createusercleancode.application.presenter.user.CreateUserPresenter;
 import com.jotace.createusercleancode.application.presenter.user.UpdateUserPresenter;
 import com.jotace.createusercleancode.core.entity.user.CommonUserFactory;
-import com.jotace.createusercleancode.core.model.user.UserRequestModel;
-import com.jotace.createusercleancode.core.model.user.UserResponseModel;
-import com.jotace.createusercleancode.core.model.user.UserUpdateRequestModel;
-import com.jotace.createusercleancode.core.model.user.UserUpdateResponseModel;
+import com.jotace.createusercleancode.core.entity.user.User;
+import com.jotace.createusercleancode.core.exception.InsertImageException;
+import com.jotace.createusercleancode.core.model.user.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.sql.rowset.serial.SerialException;
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserInteractor implements UserInputBoundary {
@@ -25,7 +30,7 @@ public class UserInteractor implements UserInputBoundary {
     }
 
     @Override
-    public UserResponseModel create(UserRequestModel userRequestModel) {
+    public UserResponseModel create(UserRequestModel userRequestModel) throws SQLException {
         var user = new CommonUserFactory().createUser(userRequestModel.name(), userRequestModel.password(), userRequestModel.email());
 
         if(user.getPassword() == null) {
@@ -38,8 +43,13 @@ public class UserInteractor implements UserInputBoundary {
     }
 
     @Override
-    public List<UserResponseModel> getAllUsers() {
-        var list = userGateway.getALlUser().stream().map(UserResponseModel::new).toList();
+    public List<UserResponseModel> getAllUsers() throws SQLException {
+        List<UserResponseModel> list = new ArrayList<>();
+
+        for (User user : userGateway.getALlUser()) {
+            UserResponseModel userResponseModel = new UserResponseModel(user);
+            list.add(userResponseModel);
+        }
 
         return list;
     }
@@ -55,9 +65,11 @@ public class UserInteractor implements UserInputBoundary {
         this.userGateway.delete(id);
     }
 
+
+
     @Override
-    public UserResponseModel findUserById(Long id) {
+    public UserResponseModel findUserById(Long id) throws SQLException {
         var user = userGateway.findUserById(id);
-        return new UserResponseModel(user);
+        return createUserPresenter.prepareSuccessView(new UserResponseModel(user));
     }
 }

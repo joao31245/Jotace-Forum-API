@@ -12,6 +12,9 @@ import java.util.List;
 
 public class UserMapper {
     public UserEntity toEntity(User user) {
+        if(user.getImage() != null) {
+            return new UserEntity(user.getName(), user.getPassword(), LocalDateTime.now(), user.getEmail(), user.getImage());
+        }
         return new UserEntity(user.getName(), user.getPassword(), LocalDateTime.now(), user.getEmail());
     }
 
@@ -30,11 +33,15 @@ public class UserMapper {
         if(posts != null) {
             posts.forEach(postEntity -> {
                 postsAbstracts.add(new CommonPostFactory().createWithId(postEntity.getId(),postEntity.getTitle(),
-                        postEntity.getImage(), postEntity.getDescription(), userAbstract, postEntity.getPostCategory()));
+                        postEntity.getDescription(), userAbstract, postEntity.getPostCategory()));
             });
         }
 
         userAbstract.setPosts(postsAbstracts);
+
+        if(user.getImage() != null) {
+            userAbstract.setImage(user.getImage());
+        }
 
         return userAbstract;
     }
