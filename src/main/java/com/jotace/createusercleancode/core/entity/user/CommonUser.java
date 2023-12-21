@@ -2,6 +2,7 @@ package com.jotace.createusercleancode.core.entity.user;
 
 import com.jotace.createusercleancode.core.entity.post.Post;
 
+import java.sql.Blob;
 import java.util.List;
 
 public class CommonUser implements User{
@@ -10,7 +11,7 @@ public class CommonUser implements User{
     private String name;
     private String password;
     private String email;
-    private String image;
+    private Blob image;
     private List<Post> posts;
 
     public CommonUser( String name, String password, String email) {
@@ -46,7 +47,7 @@ public class CommonUser implements User{
     }
 
     @Override
-    public String getImage() {
+    public Blob getImage() {
         return this.image;
     }
 
@@ -63,6 +64,11 @@ public class CommonUser implements User{
     @Override
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    @Override
+    public void setImage(Blob image) {
+        this.image = image;
     }
 
 }
