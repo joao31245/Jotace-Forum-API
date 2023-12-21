@@ -1,4 +1,6 @@
 package com.jotace.createusercleancode.core.model.user;
 
-public record SetProfileImageResponseModel() {
+import java.sql.Blob;
+
+public record SetProfileImageResponseModel(byte[] imageBytes) {
 }
