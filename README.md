@@ -104,6 +104,72 @@ eu me diverti muito e aprendi muito enquanto escrevia ele.
 
 Quem sabe um dia não possa ser algo que vá ser utilzado por alguém ❤️.
 
+# Explicação do código.
+O código foi separado em camadas, sendo elas, core, application, infra e main(Explicação de cada uma abaixo).
+
+## Camada core
+É a camada que determina como a aplicação deverá funcionar em todos os aspectos.
+
+### Boundary
+É a camada de casos de uso da minha aplicação, ela determina o contrato que deve ser seguido, para realizar cada funcionalidade
+da aplicação.
+
+### Entity
+É a camada de entidade, que define como uma entidade deve se comportar e seus atributos.
+
+### Exception
+É a camada das exceções que podem ocorrer na aplicação(serão tratadas nas camadas acima).
+
+### Model 
+É a camada que define as requsições e as respostas do usuário.
+
+## Camada Application
+É a camada que carrega a lógica de negocios da aplicação e cria uma ponte entre o código externo e as abstrações.
+
+### UseCases
+É a camada que implementa os boundarys e realiza a lógica de negocio da aplicação(Ainda sem nenhum código externo).
+
+### Presenter
+É a camada responsavel por devolver as respostas de sucesso, ou de falha.
+
+### Gateway
+É a camada que faz a ligação do código externo e o código java atráves de abstrações.
+Essa camada é responsável por prover funcionalidades a camada de usecases. Exemplo:
+A camada que vai encontrar um usuário pelo id, deletar, criar e etc.
+A camada de usecases utiliza essas funções e faz a lógica.
+
+## Camada infra
+Camada com o código externo, que finalmente utiliza de códigos de frameworks, como o Spring e o Hibernate.
+
+### Impl
+A camada que implementa as abstrações do gateway, ela vai implementar o gateway e realizar o código
+necessário de acordo com as regras do contrato. Lembrando que, essa camada somente depende das abstrações,
+não interessa se o código esta sendo feito pelo hibernate ou por outro framework por exemplo, o código vai realizar a mesma função,
+isso garante a escalabilidade do código, já que, caso necessário possa ser alterado o framework.
+
+### Persistence
+A camada de persistencia, é a camada que vai se relacionar com o banco de dados, camada responsável por, administrar as tabelas,
+e as querys com o banco de dados.
+
+### Mapper
+Camada que mapeia os usuários, passa um usuário de persistencia para um usuário definido pela camada core de entidades e vice-versa.
+
+### Controller
+Camada que recebe as requisições e utiliza dos interactors para fazer o código funcionar.
+
+## Main
+Camada de configurações e serviços externos necessários para o funcionamento do código.
+
+### Config
+Onde são definidas as Beans do código, que definem como cada abstração deve se portar, por exemplo,
+quando chamar o gateway do usuário na camada application, eu quero que a função esteja sendo realizada pela implementação na camada infra.
+
+### Exception
+Onde ficam os tratamentos de todas as exceções que podem ser jogadas no código. Camada responsável por capturar exceções e devolver uma resposta apropriada.
+
+### Service
+Onde ficam os services necessários para que funcionalidades externas funcionem.
+
 ## 🛠️ Construído com
 
 * [Spring Boot](https://spring.io/projects/spring-boot;) - O framework web usado
