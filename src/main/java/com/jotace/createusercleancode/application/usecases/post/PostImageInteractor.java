@@ -1,10 +1,12 @@
-package com.jotace.createusercleancode.application.usecases.user;
+package com.jotace.createusercleancode.application.usecases.post;
 
-import com.jotace.createusercleancode.application.gateway.user.UserImageGateway;
+import com.jotace.createusercleancode.application.gateway.post.PostImageGateway;
+import com.jotace.createusercleancode.application.presenter.post.InsertPostImagePresenter;
 import com.jotace.createusercleancode.application.presenter.user.image.InsertImagePresenter;
-import com.jotace.createusercleancode.core.boundary.user.UserImageBoundary;
+import com.jotace.createusercleancode.core.boundary.post.PostImageBoundary;
 import com.jotace.createusercleancode.core.exception.InsertImageException;
 import com.jotace.createusercleancode.core.exception.UserIsNullException;
+import com.jotace.createusercleancode.core.model.post.SetPostImageModel;
 import com.jotace.createusercleancode.core.model.user.SetProfileImageResponseModel;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,26 +14,26 @@ import javax.sql.rowset.serial.SerialException;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class UserImageInteractor implements UserImageBoundary {
-    private final UserImageGateway userImageGateway;
+public class PostImageInteractor implements PostImageBoundary {
 
-    private final InsertImagePresenter insertImagePresenter;
+    private final PostImageGateway postImageGateway;
+    private final InsertPostImagePresenter insertPostImagePresenter;
 
-    public UserImageInteractor(UserImageGateway userImageGateway, InsertImagePresenter insertImagePresenter) {
-        this.userImageGateway = userImageGateway;
-        this.insertImagePresenter = insertImagePresenter;
+    public PostImageInteractor(PostImageGateway postImageGateway, InsertPostImagePresenter insertPostImagePresenter) {
+        this.postImageGateway = postImageGateway;
+        this.insertPostImagePresenter = insertPostImagePresenter;
     }
 
     @Override
-    public SetProfileImageResponseModel setProfileImage(MultipartFile multipartFile, Long id) {
+    public SetPostImageModel setPostImage(MultipartFile multipartFile, Long id) {
         try {
             var fileBytes = multipartFile.getBytes();
             var image = new javax.sql.rowset.serial.SerialBlob(fileBytes);
 
-            var userImage = userImageGateway.setImage(id, image);
+            var userImage = postImageGateway.setImage(id, image);
             var imageBytes = userImage.getBytes(1, (int) image.length());
 
-            return insertImagePresenter.prepareSuccessView(new SetProfileImageResponseModel(imageBytes));
+            return insertPostImagePresenter.prepareSuccessView(new SetPostImageModel(imageBytes));
 
         } catch (IOException e) {
             throw new InsertImageException("Error while passing to bytes.");

@@ -18,7 +18,11 @@ public class PostMapper {
                 post.getOwner().getPassword(), post.getOwner().getEmail());
 
         var postAbstract = new CommonPostFactory().create(post.getTitle(),
-                post.getImage(), post.getDescription(), owner, post.getPostCategory());
+                 post.getDescription(), owner, post.getPostCategory());
+
+        if(post.getImage() != null) {
+            postAbstract.setImage(post.getImage());
+        }
 
         postAbstract.setId(post.getId());
 

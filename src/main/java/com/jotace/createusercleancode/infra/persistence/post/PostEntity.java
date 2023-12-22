@@ -7,6 +7,8 @@ import com.jotace.createusercleancode.infra.persistence.user.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Blob;
+
 @Entity(name = "posts")
 @Table(name = "posts")
 @NoArgsConstructor
@@ -22,7 +24,8 @@ public class PostEntity {
 
     private String title;
 
-    private String image;
+    @Lob
+    private Blob image;
 
     private String description;
 

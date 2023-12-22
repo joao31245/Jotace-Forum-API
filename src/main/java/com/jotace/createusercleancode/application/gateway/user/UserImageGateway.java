@@ -6,7 +6,5 @@ import javax.sql.rowset.serial.SerialBlob;
 import java.sql.Blob;
 
 public interface UserImageGateway {
-    User findUserById(Long id);
-
     Blob setImage(Long id, SerialBlob image);
 }

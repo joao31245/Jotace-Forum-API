@@ -1,6 +1,7 @@
 package com.jotace.createusercleancode.core.model.user;
 
 import com.jotace.createusercleancode.core.entity.user.User;
+import com.jotace.createusercleancode.core.model.mapper.ImageMapper;
 
 import java.sql.Blob;
 import java.sql.SQLException;
@@ -17,8 +18,13 @@ public record UserResponseModel(
 ) {
     public UserResponseModel(User user) throws SQLException {
         this(user.getId(), user.getName(), LocalDateTime.now(), user.getEmail(),
-                user.getPosts().stream().map(UserPostResponse::new).toList(), user.getImage().getBytes(1, (int)
-                        user.getImage().length()));
+                user.getPosts().stream().map(post -> {
+                    try {
+                        return new UserPostResponse(post);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).toList(), new ImageMapper().blobToByte(user.getImage()));
     }
 
 }

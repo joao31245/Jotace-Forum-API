@@ -6,7 +6,6 @@ public record PostRequestModel(
         Long ownerId,
         String title,
         String description,
-        String image,
         PostCategory postCategory
 ) {
 

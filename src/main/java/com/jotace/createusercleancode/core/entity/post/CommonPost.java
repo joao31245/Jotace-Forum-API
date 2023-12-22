@@ -2,30 +2,31 @@ package com.jotace.createusercleancode.core.entity.post;
 
 import com.jotace.createusercleancode.core.entity.user.User;
 
+import java.sql.Blob;
+
 public class CommonPost implements Post{
     private Long id;
     private String title;
-    private String image;
+    private Blob image;
     private String description;
     private User owner;
     private PostCategory category;
 
-    public CommonPost(String title, String image, String description, User user, PostCategory category) {
+    public CommonPost(String title, String description, User user, PostCategory category) {
         this.title = title;
-        this.image = image;
         this.description = description;
         this.owner = user;
         this.category = category;
     }
 
-    public CommonPost(Long id,String title, String image, String description, User user, PostCategory category) {
+    public CommonPost(Long id,String title, String description, User user, PostCategory category) {
         this.id = id;
         this.title = title;
-        this.image = image;
         this.description = description;
         this.owner = user;
         this.category = category;
     }
+
 
 
     @Override
@@ -43,8 +44,12 @@ public class CommonPost implements Post{
         return this.title;
     }
     @Override
-    public String getImage() {
+    public Blob getImage() {
         return this.image;
+    }
+    @Override
+    public void setImage(Blob image) {
+        this.image = image;
     }
     @Override
     public String getDescription() {

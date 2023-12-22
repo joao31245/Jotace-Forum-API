@@ -11,17 +11,11 @@ import java.sql.Blob;
 public class UserImageGatewayImpl implements UserImageGateway {
 
     private final UserEntityRepository userEntityRepository;
-    private final UserMapper userMapper;
 
     public UserImageGatewayImpl(UserEntityRepository userEntityRepository, UserMapper userMapper) {
         this.userEntityRepository = userEntityRepository;
-        this.userMapper = userMapper;
     }
 
-    @Override
-    public User findUserById(Long id) {
-        return userMapper.toAbstract(userEntityRepository.findUserById(id));
-    }
 
     @Override
     public Blob setImage(Long id, SerialBlob image) {

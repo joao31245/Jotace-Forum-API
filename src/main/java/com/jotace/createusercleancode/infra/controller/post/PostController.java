@@ -1,14 +1,14 @@
 package com.jotace.createusercleancode.infra.controller.post;
 
+import com.jotace.createusercleancode.core.boundary.post.PostImageBoundary;
 import com.jotace.createusercleancode.core.boundary.post.PostInputBoundary;
-import com.jotace.createusercleancode.core.model.post.PostRequestModel;
-import com.jotace.createusercleancode.core.model.post.PostResponseModel;
-import com.jotace.createusercleancode.core.model.post.PostUpdateRequestModel;
-import com.jotace.createusercleancode.core.model.post.PostUpdateResponseModel;
+import com.jotace.createusercleancode.core.model.post.*;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -16,12 +16,15 @@ import java.util.List;
 public class PostController {
     private final PostInputBoundary postInputBoundary;
 
-    public PostController(PostInputBoundary postInputBoundary) {
+    private final PostImageBoundary postImageBoundary;
+
+    public PostController(PostInputBoundary postInputBoundary, PostImageBoundary postImageBoundary) {
         this.postInputBoundary = postInputBoundary;
+        this.postImageBoundary = postImageBoundary;
     }
 
     @PostMapping
-    public ResponseEntity<PostResponseModel> createPost(@RequestBody @Valid PostRequestModel postRequestModel) {
+    public ResponseEntity<PostResponseModel> createPost(@RequestBody @Valid PostRequestModel postRequestModel) throws SQLException {
         return ResponseEntity.ok(this.postInputBoundary.create(postRequestModel));
     }
 
@@ -37,7 +40,7 @@ public class PostController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<PostResponseModel> getById(@PathVariable Long id) {
+    public ResponseEntity<PostResponseModel> getById(@PathVariable Long id) throws SQLException {
         return ResponseEntity.ok(postInputBoundary.findPostById(id));
     }
 
@@ -45,5 +48,14 @@ public class PostController {
     public ResponseEntity<List<PostResponseModel>> getAll() {
         return ResponseEntity.ok(postInputBoundary.getAllPosts());
     }
+
+    @PutMapping("image/{id}")
+    public ResponseEntity<SetPostImageModel> setPostImage(
+            @PathVariable Long id,
+            @RequestPart("image")MultipartFile multipartFile
+    ) {
+        return ResponseEntity.ok(postImageBoundary.setPostImage(multipartFile, id));
+    }
+
 
 }

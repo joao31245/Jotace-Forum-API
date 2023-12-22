@@ -11,6 +11,7 @@ import com.jotace.createusercleancode.core.model.post.PostUpdateRequestModel;
 import com.jotace.createusercleancode.core.model.post.PostUpdateResponseModel;
 import com.jotace.createusercleancode.core.exception.UserIsNullException;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class PostInteractor implements PostInputBoundary {
@@ -25,13 +26,17 @@ public class PostInteractor implements PostInputBoundary {
     }
 
     @Override
-    public PostResponseModel create(PostRequestModel postRequestModel) {
+    public PostResponseModel create(PostRequestModel postRequestModel) throws SQLException {
         try{
             var user = findUserGateway.findUserById(postRequestModel.ownerId());
-            var post = new CommonPostFactory().create(postRequestModel.title(), postRequestModel.image(),
+            var post = new CommonPostFactory().create(postRequestModel.title(),
                     postRequestModel.description(),user, postRequestModel.postCategory());
 
             post = postGateway.save(post);
+
+            if(user == null) {
+                throw new UserIsNullException("User is null");
+            }
 
             return createPostPresenter.prepareSuccessView(new PostResponseModel(post));
         } catch (NullPointerException exception) {
@@ -43,7 +48,7 @@ public class PostInteractor implements PostInputBoundary {
     }
 
     @Override
-    public PostResponseModel findPostById(Long id) {
+    public PostResponseModel findPostById(Long id) throws SQLException {
         var post = postGateway.findPostById(id);
 
         if(post == null) {
@@ -57,7 +62,13 @@ public class PostInteractor implements PostInputBoundary {
     public List<PostResponseModel> getAllPosts() {
         var posts = postGateway.getAllPosts();
 
-        return posts.stream().map(PostResponseModel::new).toList();
+        return posts.stream().map(post -> {
+            try {
+                return new PostResponseModel(post);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }).toList();
     }
 
     @Override
