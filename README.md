@@ -70,7 +70,7 @@ para posts, onde um usuário tem vários posts, porém um post tería vários co
 
 ### 3.0 Curtidas
 
-Seguindo a mesma lógica dos comentários, porque não adicinoar curtidas? deixaria mais parecido com um forum ou uma rede social,
+Seguindo a mesma lógica dos comentários, porque não adicionar curtidas? deixaria mais parecido com um forum ou uma rede social,
 para programadores.
 
 ### 4.0 Filtro
