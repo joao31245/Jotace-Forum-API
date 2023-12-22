@@ -1,7 +1,7 @@
 # Jotace Forum.
 
-Esse projeto inteiro foi feito com o intuito, de, aprender sobre clean architecture,
-é um projeto pessoal feito do zero por mim mesmo e eu depositei muito carinho e esforço nele.
+Esse projeto inteiro foi feito com o intuito, de, aprender sobre clean architecture.
+É um projeto pessoal feito do zero e eu depositei muito carinho e esforço nele.
 ## 🚀 Começando
 
 Para conseguir uma cópia do projeto somente será necessário clicar em code e download zip.
@@ -64,18 +64,18 @@ eu ainda não sei fazer, e estou bem animado para fazer acontecer.
 
 No momento da criação da entidade de post, eu percebi que, por mais que não estivesse nos meus planos(Nada estava na verdade),
 séria muito interessante uma feature onde, séria póssivel adicionar comentários em cada post, parecido com a relação de usuário,
-para posts, onde um usuário tem vários posts, porém um post tería vários comentarios(legal né ?).
+para posts, onde um usuário tem vários posts, porém um post tería vários comentarios(legal né?).
 
 ### 3.0 Curtidas
 
-Seguindo a mesma lógica dos comentários, porque não adicinoar curtidas ? deixaria mais parecido com um forum ou uma rede social,
+Seguindo a mesma lógica dos comentários, porque não adicinoar curtidas? deixaria mais parecido com um forum ou uma rede social,
 para programadores.
 
 ### 4.0 Filtro
 
 Agora algo mais interessante ainda.
-No dia a dia, quando utilzamos um forum ou uma rede social, é obvio que queremos ver algo do nosso interesse né ?
-Como um post tem uma categoria, porque não fazer uma paginação dinamica, de acordo com o que o usuário curtir ?,
+No dia a dia, quando utilzamos um forum ou uma rede social, é obvio que queremos ver algo do nosso interesse né?
+Como um post tem uma categoria, porque não fazer uma paginação dinamica, de acordo com o que o usuário curtir?,
 seria algo como selecionar quantas curtidas você deu em determinada categoria e fazer co que ela aparessa mais do que as outras.
 
 Pense no número 6, suponha que temos 3 categorias assim :
@@ -95,7 +95,7 @@ Estou realmente animado para fazer isso.
 ### Login por google
 
 Pra ajudar no dinamismo do login, seria bem legal utilizar o login via conta do google, algo que sinceramente,
-quando um site não tem, eu sei que várias pessoas até desistem de usar não é mesmo?
+quando um site não tem, eu sei que várias pessoas até desistem de usar, não é mesmo?
 
 ### Por fim o Front
 
