@@ -60,6 +60,8 @@ recebe um parametro de string para receber uma url como imagem, logo, não é o 
 De acordo com o problema, eu decidi que o próximo passo vai ser, adicionar suporte para imagens via multipart-form, algo que
 eu ainda não sei fazer, e estou bem animado para fazer acontecer.
 
+Essa funcionalidade atualmente foi implementada(Não irei apagar, para ser possível acompanhar a evolução das ideias do projeto).
+
 ### 2.0 Comentários
 
 No momento da criação da entidade de post, eu percebi que, por mais que não estivesse nos meus planos(Nada estava na verdade),
