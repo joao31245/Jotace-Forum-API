@@ -51,7 +51,7 @@ Enquanto eu fazia esse código eu aprendi bastante, era pra ser somente um códi
 Em respeito a quantidade de aprendizado que esse código me proporcionou, eu decidi melhorar esse código o maximo que eu puder.
 Seguem abaixo as futuras melhorias.
 
-### 1.0 Problema das imagens.
+### 1.0 Problema das imagens (Atualmente feito).
 
 Vou começar do que eu suponho que seja o mais fácil.
 Por mais que o código fale que o usuário tem uma imagem de perfil, por enquanto este usuário, somente
@@ -62,7 +62,7 @@ eu ainda não sei fazer, e estou bem animado para fazer acontecer.
 
 Essa funcionalidade atualmente foi implementada(Não irei apagar, para ser possível acompanhar a evolução das ideias do projeto).
 
-### 2.0 Comentários
+### 2.0 Comentários(Em progresso)
 
 No momento da criação da entidade de post, eu percebi que, por mais que não estivesse nos meus planos(Nada estava na verdade),
 séria muito interessante uma feature onde, séria póssivel adicionar comentários em cada post, parecido com a relação de usuário,
